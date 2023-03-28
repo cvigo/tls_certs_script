@@ -8,3 +8,5 @@ touch ./ca/index.txt
 
 openssl pkcs12 -export -inkey ./ca/rootCA.key -in ./ca/rootCA.pem -out ./ca/rootCA.p12
 #openssl x509 -in ./ca/rootCA.crt -outform PEM -out ./ca/rootCA.pem
+
+echo "Your files are now in ./ca"

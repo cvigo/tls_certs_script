@@ -16,4 +16,6 @@ openssl ca -config ./server.cnf -out "./certs/$2.pem" -extensions req_ext -endda
 
 openssl pkcs12 -export -inkey "./certs/$2.key" -in "./certs/$2.pem" -out "./certs/$2.p12"
 
+echo "Your files are now in ./certs"
+
 #rm -f "./certs/$2.csr"
