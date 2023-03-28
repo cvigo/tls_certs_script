@@ -1,0 +1,47 @@
+[ca]
+default_ca = my_ca
+
+[my_ca]
+dir = ./ca
+certificate = $dir/rootCA.pem
+database = $dir/index.txt
+private_key = $dir/rootCA.key
+serial = $dir/serial
+default_days = 365
+# default_crl_days = 30
+default_md = sha256
+policy = my_ca_policy
+email_in_dn = no
+name_opt = ca_default
+cert_opt = ca_default
+copy_extensions = copy
+new_certs_dir = ./certs
+unique_subject = no
+
+
+[my_ca_policy]
+commonName = supplied
+stateOrProvinceName = optional
+countryName = optional
+emailAddress = optional
+organizationName = optional
+organizationalUnitName = optional
+
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+req_extensions = req_ext
+
+[dn]
+C = MX
+O = BBVA
+CN = DB2 TLS Test - Server
+
+[req_ext]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = mextitmxd.ccr.igrupobbva
+DNS.2 = mexgtimxd.ccr.igrupobbva
